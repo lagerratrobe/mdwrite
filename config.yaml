@@ -1,0 +1,55 @@
+spacing:
+  normal:
+    paragraph_margin: "4px 0"
+    heading_margin: "12px 0 6px 0"
+    list_item_margin: "2px 0"
+    list_margin: "4px 0 4px 20px"
+    blockquote_margin: "4px 0 4px 20px"
+    code_block_margin: "4px 0"
+    code_block_padding: "8px 12px"
+  compact:
+    paragraph_margin: "1px 0"
+    heading_margin: "4px 0 2px 0"
+    list_item_margin: "0"
+    list_margin: "1px 0 1px 20px"
+    blockquote_margin: "1px 0 1px 20px"
+    code_block_margin: "1px 0"
+    code_block_padding: "4px 8px"
+
+fonts:
+  body: "Helvetica, Arial, sans-serif"
+  heading: "Helvetica, Arial, sans-serif"
+  code: "Fira Code, Consolas, monospace"
+
+font_sizes:
+  h1: "26px"
+  h2: "20px"
+  h3: "16px"
+  h4: "14px"
+  h5: "12px"
+  h6: "11px"
+  body: "14px"
+  code: "11px"
+
+colors:
+  heading: "#2c3e50"
+  body: "#333333"
+  code_bg: "#f4f4f4"
+  code_border: "#e1e1e1"
+  link: "#2980b9"
+  blockquote_border: "#cccccc"
+  blockquote_text: "#666666"
+  hr: "#cccccc"
+  table_border: "#dddddd"
+  table_header_bg: "#f0f0f0"
+  strikethrough: "#999999"
+
+heading_align:
+  h1: "center"
+
+outline_styles:
+  - "upper-roman"
+  - "upper-alpha"
+  - "decimal"
+  - "lower-alpha"
+  - "lower-roman"
