@@ -16,6 +16,7 @@ class StyledRenderer(mistune.HTMLRenderer):
         self.style_engine = style_engine
         self.outline = OutlineFormatter(style_engine.outline_styles)
         self._list_stack: list[dict] = []
+        self._list_mode: str = "numbered"  # "numbered" or "outline"
 
     def render_token(self, token: Dict[str, Any], state: BlockState) -> str:
         if token["type"] == "list":
@@ -89,9 +90,12 @@ class StyledRenderer(mistune.HTMLRenderer):
         if self._list_stack:
             ctx = self._list_stack[-1]
             if ctx["ordered"]:
-                depth = len(self._list_stack) - 1
                 counter = ctx["counter"]
-                marker = self.outline.format_marker(depth, counter)
+                if self._list_mode == "outline":
+                    depth = len(self._list_stack) - 1
+                    marker = self.outline.format_marker(depth, counter)
+                else:
+                    marker = f"{counter}."
                 marker_style = self.style_engine.style_for_outline_marker()
                 marker_html = f'<span style="{marker_style}">{marker}</span> '
             else:
@@ -121,6 +125,12 @@ class StyledRenderer(mistune.HTMLRenderer):
             return ""
         elif stripped == "<!-- normal -->":
             self.style_engine.set_spacing_mode("normal")
+            return ""
+        elif stripped == "<!-- outline -->":
+            self._list_mode = "outline"
+            return ""
+        elif stripped == "<!-- numbered -->":
+            self._list_mode = "numbered"
             return ""
         return html + "\n"
 
