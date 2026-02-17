@@ -94,16 +94,27 @@ Uses `++text++` syntax (double plus signs):
 ++underlined text++
 ```
 
-### Nested Outline Lists
+### Ordered Lists
 
-Ordered lists automatically get hierarchical outline markers instead of plain numbers:
+By default, ordered lists render with plain decimal numbers (1., 2., 3.) at all nesting depths.
+
+Use `<!-- outline -->` to switch to hierarchical outline markers, and `<!-- numbered -->` to switch back:
 
 ```markdown
+1. First item (renders as 1.)
+2. Second item (renders as 2.)
+
+<!-- outline -->
+
 1. First level (renders as I., II., III.)
    1. Second level (renders as A., B., C.)
       1. Third level (renders as 1., 2., 3.)
          1. Fourth level (renders as a., b., c.)
             1. Fifth level (renders as i., ii., iii.)
+
+<!-- numbered -->
+
+1. Back to plain numbers (renders as 1.)
 ```
 
 The outline style sequence is configurable in `config.yaml`.
